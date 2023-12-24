@@ -18,9 +18,9 @@ fi
 
 mkdir -p "$output_dir"
 
-for heic_file in "$input_dir"/*.HEIC; do
-  filename=$(basename "$heic_file" .HEIC)
-  output_file="$output_dir/$filename.$output_format"
+for heic_file in "$input_dir"/*.[Hh][Ee][Ii][Cc]; do
+  filename=$(basename "$heic_file")
+  output_file="$output_dir/${filename%.*}.$output_format"
   magick "$heic_file" "$output_file"
 done
 
